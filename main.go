@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 	"server/database"
 	"server/pkg/mysql"
 	"server/routes"
@@ -31,7 +32,9 @@ func main() {
 	AllowedMethods := handlers.AllowedMethods([]string{"GET", "POST", "PATCH", "DELETE", "OPTIONS", "HEAD"})
 	var AllowedOrigins = handlers.AllowedOrigins([]string{"*"})
 
-	fmt.Println("Server runing localhost:5000")
+	var port = os.Getenv("PORT")
+
+	fmt.Println("Server runing localhost:" + port)
 	// http.ListenAndServe("localhost:5000", r)
-	http.ListenAndServe("localhost:5000", handlers.CORS(AllowedHeaders, AllowedMethods, AllowedOrigins)(r))
+	http.ListenAndServe(":"+port, handlers.CORS(AllowedHeaders, AllowedMethods, AllowedOrigins)(r))
 }
