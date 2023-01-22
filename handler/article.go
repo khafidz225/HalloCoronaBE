@@ -208,7 +208,7 @@ func (h *handlerArticle) DeleteArticle(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	response := dto.SuccessResult{Code: http.StatusOK, Data: data}
 	json.NewEncoder(w).Encode(response)
-}
+} 
 
 func articleConvertResponse(u models.Article) articledto.ArticleResponse {
 	return articledto.ArticleResponse{
