@@ -87,9 +87,9 @@ func (h *handlerArticle) AddArticle(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var ctx = context.Background()
-	var CLOUD_NAME = os.Getenv("CLOUD_NAME")
-	var API_KEY = os.Getenv("API_KEY")
-	var API_SECRET = os.Getenv("API_SECRET")
+	var CLOUD_NAME = "dfxarsquq"
+	var API_KEY = "424662388976554"
+	var API_SECRET = "izwGO6NvRBu5pNVJoPyp2j1oNC4"
 
 	cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET)
 
