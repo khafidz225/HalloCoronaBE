@@ -79,6 +79,7 @@ func (h *handlerConsultation) CreateConsultation(w http.ResponseWriter, r *http.
 		Subject:      r.FormValue("subject"),
 		SelectDoctor: r.FormValue("selectdoctor"),
 		DateConsul:   dateconsul,
+		UpdateAt:     time.Now(),
 		Description:  r.FormValue("description"),
 		UserID:       userId,
 	}
@@ -103,6 +104,7 @@ func (h *handlerConsultation) CreateConsultation(w http.ResponseWriter, r *http.
 		Subject:      request.Subject,
 		SelectDoctor: request.SelectDoctor,
 		DateConsul:   request.DateConsul,
+		UpdateAt:     request.UpdateAt,
 		Description:  request.Description,
 		UserID:       request.UserID,
 		Status:       "Waiting Approve Consultation Live",
